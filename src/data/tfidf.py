@@ -269,7 +269,8 @@ def generate_title_tfidf_features(args):
         norm=args.norm,
         strip_accents=args.strip_accents,
         token_pattern=r"(?u)\b\w+\b",
-        sublinear_tf=args.sublinear_tf
+        sublinear_tf=args.sublinear_tf,
+        standard_idf=True,
     )
     title_vectorizer.fit(cleaned_titles)
     if args.save:
@@ -302,7 +303,8 @@ def generate_document_tfidf_features(args):
         norm=args.norm,
         strip_accents=args.strip_accents,
         token_pattern=r"(?u)\b\w+\b",
-        sublinear_tf=args.sublinear_tf
+        sublinear_tf=args.sublinear_tf,
+        standard_idf=True,
     )
     document_vectorizer.fit(texts)
     if args.save:
@@ -341,7 +343,8 @@ def generate_tfidf_features(args):
         norm=args.norm,
         strip_accents=args.strip_accents,
         token_pattern=r"(?u)\b\w+\b",
-        sublinear_tf=args.sublinear_tf
+        sublinear_tf=args.sublinear_tf,
+        standard_idf=True,
     )
     concat_vectorizer.fit(concat_documents)
     del concat_documents
