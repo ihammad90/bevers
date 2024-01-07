@@ -1,6 +1,6 @@
 ### Run end-to-end BEVERS
 # setup dataset variable
-set -eou pipefail
+set -euo pipefail
 export PYTHONPATH=.
 export DATASET=fever
 
