@@ -204,7 +204,7 @@ TITLE_TFIDF_PARAMS = {
     "max_features": 5000,
     "max_df": 1.0,
     "lowercase": True,
-    "max_ngrams": 2,
+    "max_ngrams": 1,
     "norm": "l2", 
     "strip_accents": "ascii",
     "sublinear_tf": True,
@@ -215,7 +215,7 @@ DOCUMENT_TFIDF_PARAMS = {
     "max_features": 5000,
     "max_df": 1.0,
     "lowercase": False,
-    "max_ngrams": 2,
+    "max_ngrams": 1,
     "norm": None,
     "strip_accents": "ascii",
     "sublinear_tf": True,
@@ -378,8 +378,11 @@ def main_sep(title_args, document_args, args):
     Main function for running separated TF-IDF feature generation.
     """
     title_args.dest_path.mkdir(exist_ok=True, parents=True)
+
     _, doc_vectorizer = generate_document_tfidf_features(document_args)
+    print('Done generating document tfidf features')
     _, title_vectorizer = generate_title_tfidf_features(title_args)
+    print('Done generate title tfidf features')
     for dataset in args.datasets:
         claims = load_pickle(PROCESSED_DATA_DIR / dataset / args.claims_file)
         claims_text = [claim.claim for claim in claims]
