@@ -201,7 +201,7 @@ stopwords = [
 
 
 TITLE_TFIDF_PARAMS = {
-    "max_features": 500000,
+    "max_features": 50000,
     "max_df": 1.0,
     "lowercase": True,
     "max_ngrams": 2,
@@ -212,7 +212,7 @@ TITLE_TFIDF_PARAMS = {
 
 
 DOCUMENT_TFIDF_PARAMS = {
-    "max_features": 500000,
+    "max_features": 50000,
     "max_df": 1.0,
     "lowercase": False,
     "max_ngrams": 2,
